@@ -1,0 +1,66 @@
+/* ------------------------------------------------------ */
+/* -- NAVIGATION -- */
+
+nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+.nav__brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.nav__brand h1 {
+    color: var(--clr-blue);
+    font-size: clamp(1.75em, 4vw, 2.5em);
+    font-weight: 800;
+}
+
+.nav__connect {
+    width: 175px;
+    height: 50px;
+    margin: 0 auto;
+
+    background-color: var(--clr-blue);
+    color: var(--clr-white);
+
+    border: none;
+    border-radius: 4px;
+
+    font-family: "Play";
+    font-size: 1.10em;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 250ms ease;
+}
+
+.nav__connect:hover {
+    background-color: var(--clr-blue-2);
+}
+
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 480px) {
+    nav {
+        grid-template-columns: 1fr;
+    }
+
+    .nav__brand {
+        padding: 10px;
+    }
+
+    .nav__brand h1 {
+        font-size: clamp(1.25em, 4vw, 2em);
+    }
+
+    .nav__connect {
+        width: calc(100% - 40px);
+    }
+
+}    
+   

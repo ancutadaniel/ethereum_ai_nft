@@ -1,0 +1,29 @@
+.loading {
+    display: flex; /* Enables flexbox */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    flex: 1;  
+    max-width: 100%;
+    width: 512px; /* You can also make this width 100% if you want it to be fully responsive */
+    height: 512px;
+    min-height: 200px; /* Set a minimum height */
+    margin: 0 25px;
+    border: 3px solid var(--clr-blue);
+    border-radius: 10px;  
+    overflow: hidden;
+}
+
+.loading p {
+    text-align: center;
+    margin: 0;
+    padding: 20px; /* Add padding to ensure text does not touch the borders */
+}
+
+@media screen and (max-width: 768px) {
+    .loading {   
+        width: 90%; /* Adjust width to 100% */    
+        height: auto; /* Height adjusts to content */
+        min-height: 400px; /* Increase minimum height on smaller screens */
+        margin: 30px;
+    }
+}

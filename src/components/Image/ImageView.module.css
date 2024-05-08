@@ -1,0 +1,40 @@
+/* -- IMAGE -- */
+.image {
+  display: flex; /* Enables flexbox */
+  flex-direction: column; /* Stacks children vertically */
+  align-items: center; /* Centers children horizontally */
+  justify-content: center; /* Centers children vertically */
+  max-width: 100%;
+  width: 512px;
+  height: auto; /* Adjust height to be auto to accommodate text and image */
+  margin: 0 25px;
+  border: 3px solid var(--clr-blue);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image img {
+  width: 100%; /* Makes image responsive within container */
+  height: auto; /* Maintains aspect ratio */
+  max-width: 512px; /* Maximum width of image */
+  max-height: 512px; /* Maximum height of image */
+  margin: 0; /* Removes margin around the image */
+  padding: 0; /* Removes padding inside the image container */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+
+.image p {
+  text-align: center; /* Centers text horizontally */
+  width: 100%; /* Ensures paragraph width matches container width */
+  padding: 10px 0; /* Adds some vertical padding */
+  margin-bottom: 10px; /* Space between the text and the image */
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+ .image {
+      width: calc(100% - 40px);
+      height: auto; /* Adjusts height automatically */
+  }
+}

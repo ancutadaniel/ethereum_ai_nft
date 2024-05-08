@@ -1,0 +1,109 @@
+.modal-overlay {
+    position: fixed;
+    /* Full coverage */
+    top: 0;
+    left: 0;
+    right: 0;
+    /* Ensures coverage extends right */
+    bottom: 0;
+    /* Ensures coverage extends down */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* Horizontally center */
+    align-items: center;
+    /* Vertically center */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
+}
+
+.modal {
+    display: flex;
+    /* Enables Flexbox layout */
+    flex-direction: column;
+    /* Stacks children vertically */
+    align-items: center;
+    /* Centers children horizontally in the container */
+    justify-content: center;
+    /* Centers children vertically in the container */
+    margin: auto;
+    /* Centered horizontally and vertically */
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+    /* Positioned relative to its normal position */
+    box-sizing: border-box;
+    /* Helps manage padding and border within width/height */
+    max-width: 90%;
+    /* Max width to ensure it doesn't touch the edges on smaller screens */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Optional shadow for visibility */
+    width: 60%;
+    /* Adjustable based on your design preference */
+    height: 50%;
+    /* Adjustable based on your design preference */
+    min-width: 300px;
+    /* Ensures the modal is not too small */
+    min-height: 200px;
+    /* Ensures the modal is not too small */
+}
+
+.modal h2 {
+    font-size: 1.5em;
+    /* Larger font size */
+    margin-bottom: 10px;
+    /* Space between the title and content */
+    text-align: center;
+}
+
+
+.modal-close-button {
+    position: absolute;
+    right: 20px;
+    /* 20px from the right edge of the modal */
+    bottom: 20px;
+    /* 20px from the bottom edge of the modal */
+    width: 250px;
+    height: 50px;
+    font: inherit;
+    background-color: var(--clr-blue);
+    color: var(--clr-white);
+    border: none;
+    border-radius: 4px;
+    font-family: "Play";
+    font-size: 1.10em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 250ms ease;
+    /* Removes focus outline */
+}
+
+
+.modal-close-button:hover,
+.modal-close-button:active {
+    background-color: #ffab04;
+    border-color: #ffab04;
+    color: #1f1a09;
+}
+
+@media (max-width: 600px) {
+    .modal {
+        width: 80%;
+        /* Takes a bit more space on smaller screens */
+        height: 50%;
+        /* Adapts height based on content */
+        padding: 10px;
+        /* Slightly smaller padding */
+    }
+
+    .modal-close-button {
+        right: 10px;
+        /* Less space on the sides on small screens */
+        bottom: 10px;
+        /* Less space on the bottom on small screens */
+        left: 10px;        
+        width: calc(100% - 20px);
+    }
+}

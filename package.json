@@ -20,8 +20,8 @@
     "build": "react-scripts build",
     "test": "npx hardhat test",
     "eject": "react-scripts eject",
-    "deploy-localhost": "npx hardhat run scripts/deploy.js --network localhost",
-    "deploy-sepolia": "npx hardhat run scripts/deploy.js --network sepolia",
+    "localhost": "npx hardhat run scripts/deploy.js --network localhost",
+    "sepolia": "npx hardhat run scripts/deploy.js --network sepolia",
     "hardhat": "npx hardhat node"
   },
   "eslintConfig": {
@@ -57,7 +57,7 @@
     "@types/mocha": "^10.0.6",
     "chai": "^4.3.7",
     "ethers": "^5.7.2",
-    "hardhat": "^2.13.0",
+    "hardhat": "^2.22.4",
     "hardhat-gas-reporter": "^1.0.9",
     "solidity-coverage": "^0.8.2",
     "ts-node": "^10.9.2",

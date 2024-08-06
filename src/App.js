@@ -63,7 +63,6 @@ const App = () => {
       );
 
       updateMetadata("url", url);
-
       await mintImage(url, provider, nft, setStatus);
     } catch (error) {
       console.error("Error in submission:", error);

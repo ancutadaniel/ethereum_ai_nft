@@ -1,32 +1,44 @@
-import axios from 'axios';
-import { Buffer } from 'buffer';
+import axios from "axios";
 
-import { MESSAGES } from '../constants/messages';
+import { MESSAGES } from "../constants/messages";
 
 const createImage = async (description, setStatus, updateMetadata) => {
   setStatus({ message: MESSAGES.generatingImage, isWaiting: true });
 
   try {
-    const URL = `https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-2`;
-    const response = await axios({
-      url: URL,
-      method: "POST",
+    const URL = `https://api.vyro.ai/v2/image/generations`;
+
+    const formData = new FormData();
+    formData.append("prompt", description);
+    formData.append("style", "realistic");
+    formData.append("aspect_ratio", "1:1");
+
+    const response = await axios.post(URL, formData, {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_HUGGING_FACE_API_KEY}`,
+        Authorization: `Bearer ${process.env.REACT_APP_IMAGINE_KEY}`,
         Accept: "application/json",
-        "Content-Type": "application/json",
       },
-      data: JSON.stringify({ inputs: description, options: { wait_for_model: true } }),
-      responseType: "arraybuffer",
+      responseType: "arraybuffer", // raw bytes
     });
 
-    const base64data = Buffer.from(response.data).toString("base64");
-    const img = `data:${response.headers["content-type"]};base64,${base64data}`;
-    updateMetadata('image', img);
+    // Convert bytes → base64
+    const base64data = btoa(
+      new Uint8Array(response.data).reduce(
+        (data, byte) => data + String.fromCharCode(byte),
+        ""
+      )
+    );
 
-    return  response.data;
+    const img = `data:${response.headers["content-type"]};base64,${base64data}`;
+
+    updateMetadata("image", img); // update App state with image string
+
+    return img;
   } catch (error) {
-    console.error("Error creating image:", error);
+    console.error(
+      "Error creating image:",
+      error.response?.data || error.message
+    );
     setStatus({ message: MESSAGES.failedToCreateImage, isWaiting: false });
   }
 };

@@ -23,7 +23,6 @@
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
-
 .image p {
   text-align: center; /* Centers text horizontally */
   width: 100%; /* Ensures paragraph width matches container width */
@@ -33,8 +32,36 @@
 
 /* Responsive adjustments for smaller screens */
 @media screen and (max-width: 768px) {
- .image {
-      width: calc(100% - 40px);
-      height: auto; /* Adjusts height automatically */
+  .image {
+    width: calc(100% - 40px);
+    height: auto; /* Adjusts height automatically */
+  }
+}
+
+/* -- PLACEHOLDER (same frame as image) -- */
+.placeholder {
+  display: flex; /* Center text horizontally & vertically */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 100%;
+  width: 512px;
+  height: 512px; /* Fixed height so it matches the eventual image size */
+  margin: 0 25px;
+  border: 3px dashed var(--clr-blue); /* Dashed border for "waiting" look */
+  border-radius: 10px;
+  background-color: var(--clr-black); /* Matches overall theme */
+  color: var(--clr-white);
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.8; /* Slightly transparent to look like a placeholder */
+}
+
+/* Responsive adjustments for placeholder */
+@media screen and (max-width: 768px) {
+  .placeholder {
+    width: calc(100% - 40px);
+    height: auto; /* allow smaller devices to shrink */
+    min-height: 300px; /* keep some frame height */
   }
 }
